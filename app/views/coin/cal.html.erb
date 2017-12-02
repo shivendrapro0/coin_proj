@@ -1,0 +1,34 @@
+
+<H1>Below are the details</H1>
+
+<p>
+<%= Time.new %> 
+<p>
+
+<% ltcPrice = getLatestPrice(genURI('LTC'),'INR') %>
+<p>
+<% btcPrice = getLatestPrice(genURI('BTC'),'INR') %>
+<p>
+<% xrpPrice = getLatestPrice(genURI('XRP'),'INR') %>
+<p>
+<% ethPrice = getLatestPrice(genURI('ETH'),'INR') %>
+<p>
+
+<% total = 0 %>
+<% total = ltcPrice.to_i * params[:ltcCount].to_i + total  %>
+<% total = btcPrice.to_i * params[:btcCount].to_i + total  %>
+<% total = xrpPrice.to_i * params[:xrpCount].to_i + total  %>
+<% total = ethPrice.to_i * params[:ethCount].to_i + total  %>
+
+<p>
+LTC Value =  <%=  ltcPrice.to_i * params[:ltcCount].to_i %>
+<p>
+BTC Value =  <%=  btcPrice.to_i * params[:btcCount].to_i %>
+<p>
+XRP Value =  <%=  xrpPrice.to_i * params[:xrpCount].to_i %>
+<p>
+ETH Value =  <%=  ethPrice.to_i * params[:ethCount].to_i %>
+<p>
+
+<p> Total Value = <%= total %> /- INR
+

@@ -1,0 +1,27 @@
+<h1>Coin#getPrice</h1>
+<a href="/coin/getBTC" target="_blank">Bitcoin Price!</a> 
+<p>To get BTC price</p>
+<a href="/coin/getETH" target="_blank">Ether Price!</a> 
+<p>To get ETH price</p>
+<a href="/coin/getLTC" target="_blank">Litecoin Price!</a> 
+<p>To get LTC price</p>
+<a href="/coin/getXRP" target="_blank">Ripple Price!</a> 
+<p>To get Ripple price</p>
+<a href="/coin/getTopTenCoin" target="_blank">Top Ten Coin Price!</a> 
+<p>To get Top Ten Coin</p>
+
+<h3>===========================</h3>
+<h3>Crypto-Currency Net Worth (INR)</h3>
+<h3>===========================</h3>
+<%= form_tag :controller=> :coin, :action=>:cal do %>
+  <p>
+  <%= text_field_tag :btcCount , '0.0', size: 5 %> BTC
+  <p>
+  <%= text_field_tag :ethCount , '0.0', size: 5 %> ETH
+  <p>
+  <%= text_field_tag :xrpCount , '0.0', size: 5 %> XRP
+  <p>
+  <%= text_field_tag :ltcCount , '0.0', size: 5 %> LTC
+  <p>
+  <%=submit_tag "Get Wealth in INR"%>
+<%end%>

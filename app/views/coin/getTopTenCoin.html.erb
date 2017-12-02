@@ -1,0 +1,62 @@
+<h1>Coin#getTopTenCoin</h1>
+<meta http-equiv="refresh" content="5">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<% data = getTopTen();  %>
+<tr>
+</tr>
+
+<table>
+ <tr>
+   <th>COIN</th>
+   <th>RANK</th>
+   <th>BTC</th>
+   <th>MARKETCAP</th>
+   <th>USD</th>
+   <th>INR</th>
+   <th>1Hr </th>
+   <th>24Hr </th>
+   <th>7Day </th>
+ </tr>
+ <% data.each do |var|  %>
+ <tr>
+   <td><%= var['id'] %></td>
+   <td><%= var['rank'] %></td>
+   <td><%= var['price_btc'] %></td>
+   <td><%= var['market_cap_usd'] %></td>
+   <td><%= var['price_usd'] %> </td>
+   <td><%= var['price_inr'] %> </td>
+<% if var['percent_change_1h'].to_f > 0.0 %>
+   <td><font color="green"><%= var['percent_change_1h'] %></font> </td>
+<% else %>
+   <td><font color="red"><%= var['percent_change_1h'] %></font> </td>
+<% end %>
+<% if var['percent_change_24h'].to_f > 0.0 %>
+   <td><font color="green"><%= var['percent_change_24h'] %></font> </td>
+<% else %>
+   <td><font color="red"><%= var['percent_change_24h'] %></font> </td>
+<% end %>
+<% if var['percent_change_7d'].to_f > 0.0 %>
+   <td><font color="green"><%= var['percent_change_7d'] %></font> </td>
+<% else %>
+   <td><font color="red"><%= var['percent_change_7d'] %></font> </td>
+<% end %>
+ </tr>
+ <% end %>
+</table>
+
